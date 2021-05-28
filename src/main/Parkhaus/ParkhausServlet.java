@@ -1,4 +1,4 @@
-package com.se1_team20.Parkhaus;
+package main.Parkhaus;
 
 import java.io.*;
 import java.util.ArrayList;

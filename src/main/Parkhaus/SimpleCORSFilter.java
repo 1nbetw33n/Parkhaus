@@ -1,4 +1,4 @@
-package com.se1_team20.Parkhaus; /**
+package main.Parkhaus; /**
  * Created by mkaul2m on 16.04.19.
  */
 
