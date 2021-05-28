@@ -1,0 +1,40 @@
+@startuml
+
+title __**stateDiagram booking in CIS**__
+state forkBooking <<fork>>
+state forkVisaValidity <<fork>>
+state forkPaymentOptions <<fork>>
+state forkAuthorizationApproval <<fork>>
+state forkDecline <<fork>>
+
+[*] --> forkBooking
+
+forkBooking --> bookConference
+forkBooking --> visaCheck
+
+visaCheck --> forkVisaValidity
+forkVisaValidity --> bookConference
+forkVisaValidity --> visaInvalidError
+bookConference --> PaymentType
+
+PaymentType --> forkPaymentOptions
+forkPaymentOptions --> SEPA
+forkPaymentOptions --> CreditCard
+SEPA --> Authorization
+CreditCard --> Authorization
+
+Authorization --> forkAuthorizationApproval
+forkAuthorizationApproval --> Accept
+forkAuthorizationApproval --> Decline
+
+Accept --> checkOut
+Decline --> forkDecline
+forkDecline --> checkOut
+forkDecline --> PaymentType
+visaInvalidError --> checkOut
+
+checkOut --> [*]
+
+@enduml
+
+
