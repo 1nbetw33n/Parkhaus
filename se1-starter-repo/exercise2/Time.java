@@ -1,4 +1,4 @@
-package exercise2;
+/*package exercise2;
 
 public class Time implements TimeIF{
     @Override
@@ -11,3 +11,4 @@ public class Time implements TimeIF{
         return 0;
     }
 }
+*/
