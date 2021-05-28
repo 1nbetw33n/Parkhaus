@@ -2,6 +2,13 @@ package main.personal_spaces.bella.exercise6.no2;
 
 public class RegEx implements RegExable{
 
+    private StringBuilder regEx;
+
+    public RegEx(final String REGEX){
+        this.regEx.append(REGEX);
+    }
+
+
     public boolean regExZip() {
         return false;
     }
