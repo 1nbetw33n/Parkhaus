@@ -5,12 +5,8 @@ title **minimized fsa**
 
 A --> A : a
 A --> B : b
-
+B --> B : b
 B --> A : a
-B --> E : b
-
-E --> E : a, b
-
 
 B -left-> [*]
 
