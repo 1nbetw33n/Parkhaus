@@ -7,31 +7,32 @@ state forkPaymentOptions <<fork>>
 state forkAuthorizationApproval <<fork>>
 state forkDecline <<fork>>
 
+
 [*] --> forkBooking
 
-forkBooking --> bookConference
-forkBooking --> visaCheck
+forkBooking --> bookConference : [book national]
+forkBooking --> visaCheck : [book international]
 
 visaCheck --> forkVisaValidity
-forkVisaValidity --> bookConference
-forkVisaValidity --> visaInvalidError
-bookConference --> PaymentType
+forkVisaValidity --> bookConference : [is valid]
+forkVisaValidity --> visaInvalidError : [is invalid]
+bookConference --> PaymentType : redirection to payment
 
 PaymentType --> forkPaymentOptions
-forkPaymentOptions --> SEPA
-forkPaymentOptions --> CreditCard
-SEPA --> Authorization
-CreditCard --> Authorization
+forkPaymentOptions --> SEPA : [is SEPA]
+forkPaymentOptions --> CreditCard : [is credit card]
+SEPA --> Authorization : contacting HypoBank
+CreditCard --> Authorization : contacting EasyCredit
 
 Authorization --> forkAuthorizationApproval
-forkAuthorizationApproval --> Accept
-forkAuthorizationApproval --> Decline
+forkAuthorizationApproval --> Accept : [issuer approved request]
+forkAuthorizationApproval --> Decline : [issuer disapproved request]
 
-Accept --> checkOut
+Accept --> checkOut : successfully booked
 Decline --> forkDecline
-forkDecline --> checkOut
-forkDecline --> PaymentType
-visaInvalidError --> checkOut
+forkDecline --> checkOut : [cancel booking]
+forkDecline --> PaymentType : return to payment options
+visaInvalidError --> checkOut : visa check failed
 
 checkOut --> [*]
 
