@@ -9,7 +9,7 @@ public class RegEx implements RegExable{
     }
 
 
-    public boolean regExZip() {
+    public boolean regExZIP() {
         return false;
     }
 

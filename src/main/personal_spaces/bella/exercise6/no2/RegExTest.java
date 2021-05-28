@@ -1,25 +1,27 @@
 package main.personal_spaces.bella.exercise6.no2;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import jdk.nashorn.internal.runtime.regexp.joni.Regex;
+import org.junit.jupiter.api.*;
 
 final class RegExTest {
 
+    private Regex RegExZIP;
+
     @BeforeEach
     void setUp(){
+        this.RegExZIP = new Regex("53757");
     }
 
 
     @AfterEach
     void tearDown(){
+        this.RegExZIP = null;
     }
 
 
     @Test
     @DisplayName("test if regular expression for zip's work like intended")
-    void testRegExZip(){
+    void testRegExZIP(){
     }
 
 
