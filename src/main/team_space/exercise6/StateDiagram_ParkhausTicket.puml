@@ -24,5 +24,3 @@ Leave_Parkhaus: entry/ delete instance of ticket_String
 Leave_Parkhaus -> [*]
 
 @enduml
-
-//created by everyone - 27.05.21
