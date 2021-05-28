@@ -1,14 +1,6 @@
-package com.se1_team20.Parkhaus;
+package main.Parkhaus;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @WebServlet(name = "level1Servlet", value = "/level1-servlet")
 public class Level1Servlet extends ParkhausServlet {

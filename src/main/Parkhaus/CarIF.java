@@ -1,4 +1,4 @@
-package com.se1_team20.Parkhaus;
+package main.Parkhaus;
 
  interface CarIF {
     int nr();
